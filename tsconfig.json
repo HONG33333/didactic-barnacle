@@ -23,7 +23,6 @@
     /* Path */
     "baseUrl": "./src",
     "paths": {
-      "@public/*": ["../public/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"]

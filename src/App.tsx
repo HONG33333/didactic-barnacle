@@ -2,8 +2,9 @@ import './App.css';
 
 import reactLogo from '@assets/react.svg';
 import TestButton from '@components/TestButton';
-import viteLogo from '@public/vite.svg';
 import { useState } from 'react';
+
+import viteLogo from '/vite.svg';
 
 function App() {
   const [count, setCount] = useState(0);
