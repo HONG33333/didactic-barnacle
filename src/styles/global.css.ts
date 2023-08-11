@@ -1,5 +1,7 @@
 import { globalStyle } from '@vanilla-extract/css';
 
+// https://www.joshwcomeau.com/css/custom-css-reset/
+
 globalStyle(`*`, {
   boxSizing: `border-box`,
   margin: 0,
