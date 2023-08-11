@@ -1,11 +1,13 @@
+import '@styles/global.css';
+import '@styles/theme.css.ts';
+
 import TestButton from '@components/TestButton';
-import { lightThemeClass } from '@styles/theme.css.ts';
 
 function App() {
   return (
-    <div className={lightThemeClass}>
+    <>
       <TestButton />
-    </div>
+    </>
   );
 }
 

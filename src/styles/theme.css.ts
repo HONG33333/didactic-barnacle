@@ -1,4 +1,7 @@
-import { createTheme, createThemeContract } from '@vanilla-extract/css';
+import {
+  createGlobalTheme,
+  createGlobalThemeContract,
+} from '@vanilla-extract/css';
 
 export const colors = {
   common: {
@@ -41,7 +44,7 @@ export const breakpoints = {
 // theme interface 라고 봐도 될 듯
 // 같은 값들을 가진 새로운 테마를 생성할 때 사용하면 좋다.
 // 여러 테마 (예를 들어 light, dark)를 만들었을 때 필요한 테마만 가져올 수 있게 코드스플리팅 해준다.
-export const vars = createThemeContract({
+export const vars = createGlobalThemeContract({
   palette: {
     common: {
       white: '',
@@ -97,25 +100,16 @@ export const vars = createThemeContract({
       light: '',
     },
   },
-  // 예시
-  font: {
-    size: '',
-    weight: '',
-    // ...,
-  },
+  // ...commonVars
 });
 
 const commonVars = {
-  font: {
-    size: '16',
-    weight: '500',
-  },
   // radius
   // spacing
   // typography
 } as const;
 
-const lightPalette = {
+const palette = {
   common: {
     white: colors.common.white,
   },
@@ -171,11 +165,7 @@ const lightPalette = {
   },
 } as const;
 
-export const lightThemeClass = createTheme(vars, {
-  palette: lightPalette,
-  ...commonVars,
-});
-export const darkThemeClass = createTheme(vars, {
-  palette: lightPalette,
+export const theme = createGlobalTheme(':root', {
+  palette,
   ...commonVars,
 });
