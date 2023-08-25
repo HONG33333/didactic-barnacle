@@ -1,3 +1,7 @@
+import { ElementType, forwardRef, ReactNode } from 'react';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+import { clsx } from 'clsx';
+
 import {
   stack,
   stackSpacing,
@@ -7,9 +11,6 @@ import {
   PolymorphicComponentProps,
   PolymorphicRef,
 } from '@components/types/polymorphic.ts';
-import { assignInlineVars } from '@vanilla-extract/dynamic';
-import { clsx } from 'clsx';
-import { ElementType, forwardRef, ReactNode } from 'react';
 
 const DEFAULT_TAG = 'div' as const;
 
