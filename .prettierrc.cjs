@@ -1,4 +1,4 @@
-/** @type {import("prettier").Options} */
+/** @type {import("prettier").Config} */
 const config = {
   "singleQuote": true,
   "semi": true,
@@ -8,4 +8,4 @@ const config = {
   "endOfLine": "auto"
 }
 
-export default config;
+module.exports = config;
