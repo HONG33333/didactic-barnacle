@@ -23,6 +23,7 @@
     /* Path */
     "baseUrl": "./src",
     "paths": {
+      // path alias 설정 시 eslintrc 파일도 수정 해야 한다.
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"]
