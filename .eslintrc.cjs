@@ -25,6 +25,13 @@ module.exports = {
     "import/first": "warn", // import 는 항상 최상단에 선언되어야 한다
     "import/newline-after-import": "warn", // import 구문 후 한칸 띄우기
     "import/no-duplicates": "warn", // 같은 경로 import 중복 제거
+    "import/extensions": ["warn", "ignorePackages", { // 확장자 생략 (auto fix는 안됨)
+      js: 'never',
+      jsx: 'never',
+      mjs: 'never',
+      ts: 'never',
+      tsx: 'never'
+    }],
     "import/order": [
       "warn",
       {

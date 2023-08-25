@@ -3,7 +3,7 @@ import { ElementType, forwardRef, ReactNode } from 'react';
 import {
   PolymorphicComponentProps,
   PolymorphicRef,
-} from '@components/types/polymorphic.ts';
+} from '@components/types/polymorphic';
 
 const DEFAULT_TAG = 'div' as const;
 

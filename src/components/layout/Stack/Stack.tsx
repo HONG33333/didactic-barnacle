@@ -6,11 +6,11 @@ import {
   stack,
   stackSpacing,
   StackVariants,
-} from '@components/layout/Stack/stack.css.ts';
+} from '@components/layout/Stack/stack.css';
 import {
   PolymorphicComponentProps,
   PolymorphicRef,
-} from '@components/types/polymorphic.ts';
+} from '@components/types/polymorphic';
 
 const DEFAULT_TAG = 'div' as const;
 

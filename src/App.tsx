@@ -3,7 +3,7 @@ import '@styles/theme.css';
 
 import { Box } from '@components/layout/Box';
 import { Stack } from '@components/layout/Stack';
-import { otherStack } from '@components/layout/Stack/otherStack.css.ts';
+import { otherStack } from '@components/layout/Stack/otherStack.css';
 import TestButton from '@components/TestButton';
 
 function App() {
