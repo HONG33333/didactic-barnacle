@@ -15,7 +15,7 @@ import {
 const DEFAULT_TAG = 'div' as const;
 
 type _StackProps = StackVariants & {
-  spacing: number;
+  spacing?: number;
 };
 export type StackProps<T extends ElementType> = PolymorphicComponentProps<
   T,
@@ -28,7 +28,14 @@ type StackComponent = <T extends ElementType = typeof DEFAULT_TAG>(
 
 export const Stack: StackComponent = forwardRef(
   <T extends ElementType = typeof DEFAULT_TAG>(
-    { as, className, spacing, direction, children, ...props }: StackProps<T>,
+    {
+      as,
+      className,
+      spacing = 0,
+      direction,
+      children,
+      ...props
+    }: StackProps<T>,
     ref: PolymorphicRef<T>['ref'],
   ) => {
     const Element = as || DEFAULT_TAG;
