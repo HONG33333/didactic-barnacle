@@ -7,11 +7,6 @@ import { tokens } from '@styles/tokens';
 import { ThemeTokens } from '@styles/types.ts';
 import { getVarName } from '@styles/utils.ts';
 
-export const breakpoints = {
-  mobile: 0,
-  desktop: 1024,
-} as const;
-
 /**
  * createGlobalThemeContract
  * theme interface 라고 봐도 될 듯

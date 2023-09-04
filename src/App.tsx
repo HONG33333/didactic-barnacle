@@ -1,9 +1,14 @@
 import '@styles/global.css';
 import '@styles/theme.css';
 
+import { clsx } from 'clsx';
+
 import { Box } from '@components/layout/Box';
 import { Stack } from '@components/layout/Stack';
-import { otherStack } from '@components/layout/Stack/otherStack.css';
+import {
+  otherStack,
+  responsiveExample,
+} from '@components/layout/Stack/otherStack.css';
 import TestButton from '@components/TestButton';
 
 function App() {
@@ -25,7 +30,11 @@ function App() {
         <li>3</li>
       </Stack>
 
-      <Stack direction="column" spacing={5} className={otherStack}>
+      <Stack
+        direction="column"
+        spacing={5}
+        className={clsx(responsiveExample, otherStack)}
+      >
         <div>1</div>
         <div>2</div>
         <div>3</div>
