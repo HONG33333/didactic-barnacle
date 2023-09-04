@@ -1,5 +1,14 @@
-import { buttonWrapper } from '@components/testButtonStyle.css';
+import { clsx } from 'clsx';
+
+import {
+  buttonWrapper,
+  motionSafeExample,
+} from '@components/testButtonStyle.css';
 
 export default function TestButton() {
-  return <button className={buttonWrapper}>TEST BUTTON</button>;
+  return (
+    <button className={clsx(buttonWrapper, motionSafeExample)}>
+      TEST BUTTON
+    </button>
+  );
 }
