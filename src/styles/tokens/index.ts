@@ -1,5 +1,5 @@
 import { borderStyles } from '@styles/tokens/border';
-import { colors } from '@styles/tokens/color';
+import { palette } from '@styles/tokens/color';
 import { opacity } from '@styles/tokens/opacity';
 import { space } from '@styles/tokens/space';
 import {
@@ -11,7 +11,7 @@ import {
 } from '@styles/tokens/typography';
 
 export const tokens = {
-  colors,
+  palette,
   space,
   opacity,
   borderStyles,
