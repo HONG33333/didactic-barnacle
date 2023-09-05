@@ -5,6 +5,7 @@ import {
   motionSafeExample,
   sprinklesExample,
 } from '@components/testButtonStyle.css';
+import { atoms } from '@styles/atoms.ts';
 import { sprinkles } from '@styles/sprinkles.css.ts';
 
 export default function TestButton({
@@ -18,7 +19,11 @@ export default function TestButton({
         className={clsx(
           buttonWrapper,
           motionSafeExample,
-          sprinkles({ cursor: cursor }),
+          // sprinkles({ cursor: cursor }),
+          atoms({
+            cursor,
+            borderRadius: '2',
+          }),
         )}
       >
         TEST BUTTON
