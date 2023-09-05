@@ -40,7 +40,7 @@ function App() {
         <div>3</div>
       </Stack>
 
-      <TestButton />
+      <TestButton cursor={'pointer'} />
     </>
   );
 }
