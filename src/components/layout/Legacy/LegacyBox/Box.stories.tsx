@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoryFn } from '@storybook/react';
 
-import Box from '@components/layout/Box';
+import Box from '@components/layout/Legacy/LegacyBox/index.ts';
 
 const meta = {
-  title: 'Layout/Box',
+  title: 'Layout/LegacyBox',
   component: Box,
   parameters: {
     componentSubtitle: '박스 레이아웃입니다.',

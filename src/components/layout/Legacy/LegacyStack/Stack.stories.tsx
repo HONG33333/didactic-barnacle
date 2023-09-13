@@ -1,10 +1,10 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { StoryObj } from '@storybook/react';
 
-import Stack from '@components/layout/Stack';
+import Stack from '@components/layout/Legacy/LegacyStack/index.ts';
 
 const meta = {
-  title: 'Layout/Stack',
+  title: 'Layout/LegacyStack',
   component: Stack,
   parameters: {
     componentSubtitle:
