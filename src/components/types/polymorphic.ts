@@ -11,13 +11,12 @@ import {
  */
 
 // 기존 type 과 내가 선언한 type 이름 겹치는것 없애기
-type DistributiveOmit<T, K extends keyof T> = T extends object
-  ? Omit<T, K>
-  : never;
+type DistributiveOmit<T, K> = T extends object ? Omit<T, keyof K> : never;
 
 type AsProp<T extends ElementType = ElementType> = {
   as?: T;
 };
+
 export type PolymorphicRef<T extends ElementType> =
   ComponentPropsWithRef<T>['ref'];
 
@@ -25,6 +24,8 @@ export type PolymorphicRef<T extends ElementType> =
 export type PolymorphicComponentProps<
   Element extends ElementType,
   Props = object,
-> = AsProp<Element> &
+> = DistributiveOmit<ComponentPropsWithoutRef<Element>, Props | 'as'> &
   Props &
-  DistributiveOmit<ComponentPropsWithoutRef<Element>, keyof Props | 'as'>;
+  AsProp<Element> & {
+    ref?: PolymorphicRef<Element>;
+  };
