@@ -4,9 +4,14 @@ import { breakpoints } from '@styles/breakpoints.ts';
 import { theme } from '@styles/theme.css.ts';
 import { flattenPaletteObj } from '@styles/utils.ts';
 
-const flexAlignment = ['flex-start', 'center', 'flex-end', 'stretch'] as const;
+export const flexAlignment = [
+  'flex-start',
+  'center',
+  'flex-end',
+  'stretch',
+] as const;
 
-const flexibility = [0, 1, 2, 3, 4] as const;
+export const flexibility = [0, 1, 2, 3, 4] as const;
 
 const negativeSpace = {
   ['-px']: '-1px',
@@ -20,7 +25,7 @@ const negativeSpace = {
   ['-4']: '-1rem',
 };
 
-const margins = {
+export const margins = {
   ...theme.space,
   ...negativeSpace,
 };
@@ -167,7 +172,7 @@ const unresponsiveProperties = defineProperties({
   },
 });
 
-const colorSchema = flattenPaletteObj(theme.palette);
+export const colorSchema = flattenPaletteObj(theme.palette);
 
 const selectorProperties = defineProperties({
   conditions: {
