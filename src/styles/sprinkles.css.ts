@@ -51,11 +51,11 @@ const baseProperties = defineProperties({
     borderLeftWidth: theme.smallSpace,
     borderRightWidth: theme.smallSpace,
     borderTopWidth: theme.smallSpace, //
-    borderRadius: theme.smallSpace, //
-    borderBottomLeftRadius: theme.smallSpace,
-    borderBottomRightRadius: theme.smallSpace,
-    borderTopLeftRadius: theme.smallSpace,
-    borderTopRightRadius: theme.smallSpace,
+    borderRadius: theme.radius, //
+    borderBottomLeftRadius: theme.radius,
+    borderBottomRightRadius: theme.radius,
+    borderTopLeftRadius: theme.radius,
+    borderTopRightRadius: theme.radius,
     bottom: theme.space,
     display: ['block', 'flex', 'grid', 'inline-block', 'none', 'contents'],
     flex: {
