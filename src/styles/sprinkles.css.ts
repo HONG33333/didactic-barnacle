@@ -30,12 +30,18 @@ export const margins = {
   ...negativeSpace,
 };
 
-const responsiveProperties = defineProperties({
-  defaultCondition: 'wide',
+export const colorSchema = flattenPaletteObj(theme.palette);
+
+const baseProperties = defineProperties({
+  defaultCondition: 'base',
   conditions: {
-    wide: {},
+    base: {},
     mobile: { '@media': `(min-width: ${breakpoints.mobile}px)` },
     desktop: { '@media': `(min-width: ${breakpoints.desktop}px)` },
+    active: { selector: '&:active' },
+    focus: { selector: '&:focus' },
+    hover: { selector: '&:hover' },
+    disabled: { selector: '&:disabled' },
   },
   properties: {
     alignItems: [...flexAlignment, 'baseline'],
@@ -97,23 +103,7 @@ const responsiveProperties = defineProperties({
     textAlign: ['center', 'left', 'right'],
     top: theme.space,
     width: theme.space,
-  },
-  shorthands: {
-    borderLeftRadius: ['borderBottomLeftRadius', 'borderTopLeftRadius'],
-    borderRightRadius: ['borderBottomRightRadius', 'borderTopRightRadius'],
-    borderTopRadius: ['borderTopLeftRadius', 'borderTopRightRadius'],
-    borderBottomRadius: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
-    margin: ['marginTop', 'marginBottom', 'marginLeft', 'marginRight'],
-    marginX: ['marginLeft', 'marginRight'],
-    marginY: ['marginTop', 'marginBottom'],
-    padding: ['paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight'],
-    paddingX: ['paddingLeft', 'paddingRight'],
-    paddingY: ['paddingTop', 'paddingBottom'],
-  },
-});
-
-const unresponsiveProperties = defineProperties({
-  properties: {
+    // unresponsive
     aspectRatio: {
       auto: 'auto',
       '1/1': '1 / 1',
@@ -169,26 +159,24 @@ const unresponsiveProperties = defineProperties({
       '999': 999,
       auto: 'auto',
     },
-  },
-});
-
-export const colorSchema = flattenPaletteObj(theme.palette);
-
-const selectorProperties = defineProperties({
-  conditions: {
-    base: {},
-    active: { selector: '&:active' },
-    focus: { selector: '&:focus' },
-    hover: { selector: '&:hover' },
-    disabled: { selector: '&:disabled' },
-  },
-  defaultCondition: 'base',
-  properties: {
+    // selectors
     backgroundColor: colorSchema,
     borderColor: colorSchema,
     // boxShadow: theme.shadows,
     color: colorSchema,
     outlineColor: colorSchema,
+  },
+  shorthands: {
+    borderLeftRadius: ['borderBottomLeftRadius', 'borderTopLeftRadius'],
+    borderRightRadius: ['borderBottomRightRadius', 'borderTopRightRadius'],
+    borderTopRadius: ['borderTopLeftRadius', 'borderTopRightRadius'],
+    borderBottomRadius: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
+    margin: ['marginTop', 'marginBottom', 'marginLeft', 'marginRight'],
+    marginX: ['marginLeft', 'marginRight'],
+    marginY: ['marginTop', 'marginBottom'],
+    padding: ['paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight'],
+    paddingX: ['paddingLeft', 'paddingRight'],
+    paddingY: ['paddingTop', 'paddingBottom'],
   },
 });
 
@@ -211,11 +199,6 @@ const motionSafeProperties = defineProperties({
   },
 });
 
-export const sprinkles = createSprinkles(
-  responsiveProperties,
-  unresponsiveProperties,
-  selectorProperties,
-  motionSafeProperties,
-);
+export const sprinkles = createSprinkles(baseProperties, motionSafeProperties);
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];
