@@ -1,7 +1,7 @@
 import { borderStyles } from '@styles/tokens/border';
 import { palette } from '@styles/tokens/color';
 import { opacity } from '@styles/tokens/opacity';
-import { space } from '@styles/tokens/space';
+import { radius, smallSpace, space } from '@styles/tokens/space';
 import {
   fontFamilies,
   fontSizes,
@@ -15,8 +15,8 @@ export const tokens = {
   space,
   opacity,
   borderStyles,
-  // borderWidths: space,
-  // radius: space,
+  smallSpace,
+  radius,
   fontFamilies,
   fontSizes,
   fontWeights,

@@ -58,10 +58,10 @@ export type PaletteToken = {
 
 export type ThemeTokens = {
   borderStyles: Tokens['borderStyles'];
-  // borderWidths: Tokens['borderWidths'];
-  // radius: Tokens['radius'];
   palette: PaletteToken;
   space: Tokens['space'];
+  smallSpace: Tokens['smallSpace'];
+  radius: Tokens['radius'];
   fontFamilies: Tokens['fontFamilies'];
   fontWeights: Tokens['fontWeights'];
   fontSizes: Tokens['fontSizes'];

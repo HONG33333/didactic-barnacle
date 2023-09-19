@@ -55,3 +55,22 @@ export const space = {
   xl: '2.5rem', // 40px
   xxl: '3.75rem', // 60px
 } as const;
+
+export const smallSpace = {
+  '0': '0px',
+  px: '1px',
+  '0.375': '0.09375rem',
+  '0.5': '0.125rem',
+  '0.75': '0.1875rem',
+  '1': '0.25rem',
+  '2': '0.5rem',
+  '2.5': '0.625rem',
+  '3': '0.75rem',
+  '3.5': '0.875rem',
+  '4': '1rem', // 16px root
+};
+
+export const radius = {
+  ...smallSpace,
+  full: '9999px',
+};
