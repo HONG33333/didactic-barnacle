@@ -1,6 +1,7 @@
 export const colors = {
   common: {
     white: '#FFFFFF',
+    transparent: 'transparent',
   },
   blue: {
     main: '#1459FA',
@@ -35,6 +36,7 @@ export const palette = {
   palette: {
     common: {
       white: colors.common.white,
+      transparent: colors.common.transparent,
     },
     text: {
       primary: colors.grey.dark,
@@ -88,5 +90,3 @@ export const palette = {
     },
   },
 } as const;
-
-// TODO: Admin color 따로 설정? DarkMode?
