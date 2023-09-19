@@ -2,6 +2,7 @@ import '@styles/global.css';
 import { useRef } from 'react';
 import { clsx } from 'clsx';
 
+import { Button } from '@components/input';
 import { Box } from '@components/layout/Box';
 import { Stack } from '@components/layout/Stack';
 import TestButton from '@components/TestButton';
@@ -12,6 +13,47 @@ function App() {
   const aref = useRef<HTMLAnchorElement>(null);
   return (
     <>
+      <Button>primary contained</Button>
+      <Button color="secondary" size="s">
+        secondary contained
+      </Button>
+      <Button color="secondary">secondary contained</Button>
+      <Button color="secondary" size="l">
+        secondary contained
+      </Button>
+
+      <Button variant="outlined">outlined contained</Button>
+      <Button variant="outlined" color="secondary">
+        outlined secondary
+      </Button>
+      <Button
+        variant="text"
+        onClick={() => {
+          alert('ㅋㅋ');
+        }}
+      >
+        text primary
+      </Button>
+      <Button variant="text" color="secondary">
+        outlined secondary
+      </Button>
+      <Button variant="outlined" color="secondary" fullWidth>
+        fullWidth outlined secondary
+      </Button>
+      <Button disabled>contained disabled</Button>
+      <Button variant="outlined" disabled>
+        outlined disabled
+      </Button>
+      <Button variant="outlined" color="secondary" disabled>
+        outlined secondary disabled
+      </Button>
+      <Button variant="text" disabled>
+        text disabled
+      </Button>
+      <Button variant="text" color="secondary" disabled>
+        text secondary disabled
+      </Button>
+
       <Box
         ref={aref}
         as="a"
