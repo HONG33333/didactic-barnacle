@@ -3,19 +3,12 @@ import { useRef } from 'react';
 import { clsx } from 'clsx';
 
 import { Box } from '@components/layout/Box';
-import {
-  otherStack,
-  responsiveExample,
-} from '@components/layout/Legacy/LegacyStack/otherStack.css';
 import { Stack } from '@components/layout/Stack';
 import TestButton from '@components/TestButton';
 import { buttonWrapper } from '@components/testButtonStyle.css.ts';
 import { atoms } from '@styles/atoms.ts';
-import { Box as LegacyBox } from 'components/layout/Legacy/LegacyBox';
-import { Stack as LegacyStack } from 'components/layout/Legacy/LegacyStack';
 
 function App() {
-  const pref = useRef<HTMLParagraphElement>(null);
   const aref = useRef<HTMLAnchorElement>(null);
   return (
     <>
@@ -56,34 +49,6 @@ function App() {
         <div>3s2</div>
         <div>4e3</div>
       </Stack>
-
-      <Box borderWidth="1" padding="3" marginTop="3" borderColor="text.primary">
-        Legacy
-        <LegacyBox as="p" ref={pref}>
-          P
-        </LegacyBox>
-        <LegacyBox>div</LegacyBox>
-        <LegacyBox as="ul">ul</LegacyBox>
-        <LegacyStack direction="row" spacing={10}>
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </LegacyStack>
-        <LegacyStack direction="column" spacing={2} as="ul">
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </LegacyStack>
-        <LegacyStack
-          direction="column"
-          spacing={5}
-          className={clsx(responsiveExample, otherStack)}
-        >
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </LegacyStack>
-      </Box>
 
       <TestButton cursor={'pointer'} />
     </>
