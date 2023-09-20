@@ -8,9 +8,9 @@ type Props = ComponentPropsWithoutRef<'button'> & ButtonVariants;
 export const Button = forwardRef(
   (
     {
-      size,
-      color,
-      variant,
+      size = 'm',
+      color = 'primary',
+      variant = 'contained',
       disabled = false,
       fullWidth = false,
       className,

@@ -42,11 +42,11 @@ export const button = recipe({
     variant: {
       contained: atoms({ color: 'common.white' }),
       outlined: [atoms({ borderWidth: 'px', borderColor: 'secondary.light3' })],
-      text: atoms({}),
+      text: {},
     },
     color: {
-      primary: atoms({}),
-      secondary: atoms({}),
+      primary: {},
+      secondary: {},
     },
     disabled: {
       true: {},
