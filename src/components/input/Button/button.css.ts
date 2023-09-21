@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 
-import { atoms } from '@styles/atoms.ts';
+import { atoms } from '@styles/index';
 
 export const button = recipe({
   base: [

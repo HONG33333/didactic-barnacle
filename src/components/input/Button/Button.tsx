@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, forwardRef, Ref } from 'react';
 import { clsx } from 'clsx';
 
-import { ButtonVariants, button } from '@components/input/button.css';
+import { ButtonVariants, button } from '@components/input/Button/button.css';
 
 type Props = ComponentPropsWithoutRef<'button'> & ButtonVariants;
 

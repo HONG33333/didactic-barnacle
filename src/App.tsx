@@ -2,12 +2,10 @@ import '@styles/global.css';
 import { useRef } from 'react';
 import { clsx } from 'clsx';
 
-import { Button } from '@components/input';
+import { Button } from '@components/input/Button';
 import { Box } from '@components/layout/Box';
 import { Stack } from '@components/layout/Stack';
-import TestButton from '@components/TestButton';
-import { buttonWrapper } from '@components/testButtonStyle.css.ts';
-import { atoms } from '@styles/atoms.ts';
+import { atoms } from '@styles/index';
 
 function App() {
   const aref = useRef<HTMLAnchorElement>(null);
@@ -61,7 +59,6 @@ function App() {
         borderColor="primary.main"
         height={'10'}
         className={clsx(
-          buttonWrapper,
           atoms({
             cursor: 'not-allowed',
             borderRadius: '2',
@@ -91,8 +88,6 @@ function App() {
         <div>3s2</div>
         <div>4e3</div>
       </Stack>
-
-      <TestButton cursor={'pointer'} />
     </>
   );
 }
