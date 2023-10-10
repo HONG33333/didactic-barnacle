@@ -4,6 +4,11 @@ import { breakpoints } from '@styles/breakpoints.ts';
 import { theme } from '@styles/theme.css.ts';
 import { flattenPaletteObj } from '@styles/utils.ts';
 
+// sprinkles 보다 reset 의 우선순위가 낮도록 셋팅. 이동하지 말것
+/* DO NOT MOVE THIS LINE */
+import './reset.css'
+/* DO NOT MOVE THIS LINE */
+
 export const flexAlignment = [
   'flex-start',
   'center',
