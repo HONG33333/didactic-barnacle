@@ -1,0 +1,60 @@
+# .github/workflows/chromatic.yml
+
+# Workflow name
+name: 'StoryBook Chromatic Publish'
+
+
+
+# Event for the workflow
+on:
+  pull_request:
+    branches:
+      - develop
+# List of jobs
+jobs:
+  storybook:
+    # Operating System
+    runs-on: ubuntu-latest
+    outputs:
+      status: ${{ job.status }}
+    # Job steps
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
+
+      - name: Remove yarn.lock
+        run: rm -rf yarn.lock
+        if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Install dependencies
+        run: yarn
+        if: steps.cache.outputs.cache-hit != 'true'
+
+        #👇 Adds Chromatic as a step in the workflow
+      - name: publish to chromatic
+        id: chromatic
+        uses: chromaui/action@v1
+        # Options required for Chromatic's GitHub Action
+        with:
+          #👇 Chromatic projectToken,
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GIT_TOKEN }}
+
+      - name: comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        with:
+          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
