@@ -3,6 +3,8 @@
 # Workflow name
 name: 'StoryBook Chromatic Publish'
 
+
+
 # Event for the workflow
 on:
   pull_request:
@@ -32,8 +34,8 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
+        if: steps.cache.outputs.cache-hit != 'true'
 
         #👇 Adds Chromatic as a step in the workflow
       - name: publish to chromatic
