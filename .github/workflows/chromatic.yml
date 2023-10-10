@@ -1,0 +1,70 @@
+# .github/workflows/chromatic.yml
+
+# Workflow name
+name: 'StoryBook Chromatic Publish'
+
+# Event for the workflow
+on:
+  pull_request:
+    branches: [ "develop", "main" ]
+# List of jobs
+jobs:
+  test:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: check change stories
+        id: story_changes
+        run: |
+          git fetch
+          base_branch="develop"
+          current_branch=$(git rev-parse --abbrev-ref HEAD) 
+          
+          if [[ $current_branch == "main" ]]; then
+            base_branch="main"
+          fi
+          
+          if [[ -n $(git diff --name-only HEAD origin/$base_branch -- stories/) ]]; then
+            echo "isChange=true" >> $GITHUB_OUTPUT
+          else
+            echo "isChange=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
+        if: steps.story_changes.outputs.isChange == 'true'
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true' && steps.story_changes.outputs.isChange == 'true'
+        run: yarn install --frozen-lockfile
+
+        #👇 Adds Chromatic as a step in the workflow
+      - name: publish to chromatic
+        id: chromatic
+        uses: chromaui/action@v1
+        # Options required for Chromatic's GitHub Action
+        with:
+          #👇 Chromatic projectToken,
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GIT_TOKEN }}
+        if: steps.story_changes.outputs.isChange == 'true'
+
+      - name: comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+        if: steps.story_changes.outputs.isChange == 'true'
