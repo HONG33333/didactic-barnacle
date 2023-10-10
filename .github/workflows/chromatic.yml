@@ -8,7 +8,8 @@ name: 'StoryBook Chromatic Publish'
 # Event for the workflow
 on:
   pull_request:
-    branches: [ "develop", "main" ]
+    branches:
+      - develop
 # List of jobs
 jobs:
   storybook:
