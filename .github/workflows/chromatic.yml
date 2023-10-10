@@ -33,6 +33,10 @@ jobs:
             ${{ runner.os }}-yarn-
             ${{ runner.os }}-
 
+      - name: Remove yarn.lock
+        run: rm -rf yarn.lock
+        if: steps.cache.outputs.cache-hit != 'true'
+
       - name: Install dependencies
         run: yarn
         if: steps.cache.outputs.cache-hit != 'true'
