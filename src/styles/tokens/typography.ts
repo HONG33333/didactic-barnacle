@@ -45,7 +45,7 @@ export const letterSpacings = {
   // normal: '0',
   // '0.03': '0.03em',
 
-  normal: '-0.3px', // sirloin default
+  normal: '-0.3px', // default
 };
 
 export const lineHeights = {
@@ -58,5 +58,5 @@ export const lineHeights = {
   // '2': '2', // loose
 
   none: '1',
-  normal: '1.6', // sirloin default
+  normal: '1.6', // default
 };

@@ -12,5 +12,3 @@
 //   'dark-lg':
 //     '0px 0px 0px 1px rgba(0, 0, 0, 0.10), 0px 5px 10px 0px rgba(0, 0, 0, 0.20), 0px 15px 40px 0px rgba(0, 0, 0, 0.40)',
 // } as const;
-
-// TODO: sirloin shadow 정리되면 추가

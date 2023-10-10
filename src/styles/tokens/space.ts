@@ -47,7 +47,6 @@ export const space = {
   viewWidth: '100vw',
   none: '0',
 
-  // sirloin design system
   xs: '0.75rem', // 12px
   sm: '1rem', // 16px
   md: '1.5rem', // 24px
