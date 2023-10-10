@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn
         if: steps.cache.outputs.cache-hit != 'true'
 
         #👇 Adds Chromatic as a step in the workflow
